@@ -1,15 +1,17 @@
+---
+
 - hosts: all
   become: true
   tasks:
-
+  
 # Listing VMs
-- name: list all VMs
-  community.libvirt.virt:
-    command: list_vms
-  register: all_vms
+  - name: list all VMs
+    community.libvirt.virt:
+      command: list_vms
+    register: all_vms
 
-- name: list only running VMs
-  community.libvirt.virt:
-    command: list_vms
-    state: running
-  register: running_vms
+  - name: list only running VMs
+    community.libvirt.virt:
+      command: list_vms
+      state: running
+    register: running_vms
